@@ -22,7 +22,9 @@ SERVER.listen(PORT, HOSTNAME, () => {
 });
 
 const rootController = require('./routes/index'),
-    poniesController = require('./routes/ponies');
+    poniesController = require('./routes/characters'),
+    reviewsController = require('./routes/reviews');
 
 app.use('/', rootController);
-app.use('/ponies', poniesController);
+app.use('/characters', poniesController);
+app.use('/reviews', reviewsController);

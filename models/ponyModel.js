@@ -11,22 +11,22 @@ class PONYModel {
     }
 
     static async getAll() {
-        const response = await db.any(`SELECT * FROM react_o_blog;`);
+        const response = await db.any(`SELECT * FROM characters;`);
         return response;
     }
 
     static async getBySlug(slug) {
-        const response = await db.one(`SELECT * FROM react_o_blog WHERE slug = '${slug}';`);
+        const response = await db.one(`SELECT * FROM characters WHERE slug = '${slug}';`);
         return response;
     }
 
     static async addEntry (name, slug, attribute, image) {
-        const response = await db.result(`INSERT INTO react_o_blog (name, slug, attribute, image) VALUES ($1, $2, $3, $4)`, [name, slug, attribute, image]);
+        const response = await db.result(`INSERT INTO characters (name, slug, attribute, image) VALUES ($1, $2, $3, $4)`, [name, slug, attribute, image]);
         return response;
     }
 
     async deleteEntry() {
-        const response = await db.result(`DELETE FROM react_o_blog WHERE id = $1`, [this.id]);
+        const response = await db.result(`DELETE FROM characters WHERE id = $1`, [this.id]);
         return response;
     }
 }
